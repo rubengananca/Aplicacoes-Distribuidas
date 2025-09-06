@@ -1,0 +1,22 @@
+<!-- listar_utentes.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Familiares</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Listar Familiares</h1>
+
+    <ul>
+        {% for familiar in familiares %}
+        <li> Familiar: {{ familiar.nome }} || Utente: {{ familiar.id_associado.nome}} - <a href="{% url 'detalhes_familiar' familiar.id %}">Detalhes</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

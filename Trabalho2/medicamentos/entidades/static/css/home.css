@@ -1,0 +1,127 @@
+.header{
+    height: 55px;
+    background-color: #008080;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dedede; 
+
+    z-index: 100;
+
+    box-shadow:
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.012),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.018),
+    100px 100px 80px rgba(0, 0, 0, 0.03)
+  ;
+
+}
+
+.site-name{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: italic;
+
+    background-color: #008080;
+    border-width: 0;
+    cursor: pointer;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #def9f997;
+    color: #333;
+    margin: 0;
+    padding-left: 25px;
+    padding-top: 60px;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+h1 {
+    color: #008080;
+}
+
+.RegLog{
+    background-color: #00b4b4;
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    border-width: 1px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    margin-right: 50px;
+    margin-left: 50px;
+
+    font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-weight: bold; /* Adicionado para tornar o texto negrito */
+}
+
+.RegLog:hover{
+    background-color: #008080;
+    color: white;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.right-side{
+    padding-top: 12px;
+    padding-right: 30px;
+}
+
+.headerBut{
+    font-family: 'Roboto', sans-serif;
+    background-color: #008080;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 20px;
+    font-weight: 300;
+    border-width: 0;
+    cursor: pointer;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-content {
+    margin-top: 60px; /* Ajuste a margem superior conforme necessário */
+    margin-bottom: 40px;
+}
+
+.image-content {
+    width: 102vw;
+    overflow: hidden;
+}
+
+.hospital-image {
+    width: 100%;
+    height: auto;
+}
+

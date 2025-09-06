@@ -1,0 +1,22 @@
+<!-- listar_utentes.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Utentes</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Listar Utente</h1>
+
+    <ul>
+        {% for utente in utentes %}
+        <li> Utente: {{ utente.nome }} || Número de Saúde: {{ utente.numSaude}} - <a href="{% url 'detalhes_utente' utente.id %}">Detalhes</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

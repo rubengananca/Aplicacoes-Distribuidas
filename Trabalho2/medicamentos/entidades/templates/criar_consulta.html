@@ -1,0 +1,58 @@
+<!-- templates/home.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Consulta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/registar.css' %}">
+    
+</head>
+<body>
+
+    <div class="header">
+
+        <button class="site-name" onclick="window.location.href='{% url 'home_medico' %}'"> 
+            Home Page 
+        </button>
+
+        <div class="right-side">
+            <button class="headerBut" onclick="window.location.href='{% url 'detalhes_medico' medico_id %}'">Sobre mim</button>
+            <button class="headerBut" onclick="window.location.href='{% url 'home' %}'">Logout</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Criar Consulta</h1>
+
+        <form method="POST" actions = "">
+
+            {% csrf_token %%}
+
+            {% for field in form %}
+            <div class="form-group {{ field.name }}">
+                {{ field.label_tag }} 
+            </div>
+            <div class="caixa {{ field.name }}">
+                {{ field }}
+            </div>
+            {% endfor %}
+
+            <!-- {{ form.errors }} -->
+
+            <div class="form-group">
+                <input type="submit" name="Create Consulta">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

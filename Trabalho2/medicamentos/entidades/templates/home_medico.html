@@ -1,0 +1,72 @@
+<!-- templates/home.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/home_medico.css' %}">
+</head>
+<body>
+
+    <div class="header">
+
+        <button class="site-name" onclick="window.location.href='{% url 'home_medico' %}'"> 
+            Home Page 
+        </button>
+
+        <div class="right-side">
+            <button class="headerBut" onclick="window.location.href='{% url 'detalhes_medico' medico_id %}'">Sobre mim</button>
+            <button class="headerBut" onclick="window.location.href='{% url 'estatisticas' %}'">Estatísticas</button>
+            <button class="headerBut" onclick="window.location.href='{% url 'home' %}'">Logout</button>
+        </div>
+    </div>
+
+
+    <div class="main-content">
+
+        <div class="texto">
+            <h1>Bem vindo, {{ nome_utilizador }}</h1>
+        </div>
+
+    <div class="conteudo">
+        <div class="coluna">
+            <h2>Criar</h2>
+            <button class="botao" onclick="window.location.href='{% url 'criar_consulta' %}'">Consulta</button>
+            <button class="botao" onclick="window.location.href='{% url 'criar_exame' %}'">Exame</button>
+            <button class="botao" onclick="window.location.href='{% url 'criar_parametro' %}'">Parâmetro</button>
+            <button class="botao" onclick="window.location.href='{% url 'criar_prescricao' %}'">Prescrição</button>
+        </div>
+        
+        <div class="separador"></div>
+        
+        <div class="colunaDireita">
+            <h2 class="titulo2">Listar</h2>
+            <div class="coluna1">
+                <button class="botao" onclick="window.location.href='{% url 'listar_consultas' %}'">Consultas</button>
+                <button class="botao" onclick="window.location.href='{% url 'listar_exames' %}'">Exames</button>
+                <button class="botao" onclick="window.location.href='{% url 'listar_parametros' %}'">Parâmetros</button>
+                <button class="botao" onclick="window.location.href='{% url 'listar_prescricoes' %}'">Prescrições</button>
+            </div>
+            <div class="coluna2">
+                <button class="botao" onclick="window.location.href='{% url 'listar_medicos' %}'">Médicos</button>
+                <button class="botao" onclick="window.location.href='{% url 'listar_utentes' %}'">Utentes</button>
+                <button class="botao" onclick="window.location.href='{% url 'listar_familiares' %}'">Familiares</button>
+                <button class="botao" onclick="window.location.href='{% url 'listar_medicamentos' %}'">Medicamentos</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+

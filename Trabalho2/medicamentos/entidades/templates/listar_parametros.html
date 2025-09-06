@@ -1,0 +1,22 @@
+<!-- listar_utentes.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Parâmetros</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Listar Parâmetros</h1>
+
+    <ul>
+        {% for parametro in parametros %}
+            <li> Data: {{ parametro.data}} || Utente: {{ parametro.utente.nome}} - <a href="{% url 'detalhes_parametro' parametro.id %}">Detalhes</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

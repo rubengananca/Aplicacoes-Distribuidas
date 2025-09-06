@@ -1,0 +1,67 @@
+<!-- detalhes_medico.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Consulta</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Detalhes da Consulta</h1>
+
+    <p>Utente: {{ consulta.utente.nome }}</p>
+    <p>Medico: {{ consulta.medico.nome }}</p>
+    <p>Especialidade: {{ consulta.medico.get_especialidade_display }}</p>
+    <p>Data: {{ consulta.data }} </p>
+
+
+    <h2>Prescrições:</h2>
+    
+    {% if consulta.prescricoes.exists %}
+        <ul>
+            {% for prescricao in consulta.prescricoes.all %}
+                <li>
+                    <a href="{% url 'detalhes_prescricao' prescricao.id %}">{{ prescricao.consulta.data }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sem prescrições</p>
+    {% endif %}
+
+    <h2>Exames:</h2>
+    
+    {% if consulta.exames.exists %}
+        <ul>
+            {% for exame in consulta.exames.all %}
+                <li>
+                    <a href="{% url 'detalhes_exame' exame.id %}">{{ exame.consulta.data }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sem Exames</p>
+    {% endif %}
+
+    <h2>Parâmetros:</h2>
+    
+    {% if consulta.parametros.exists %}
+        <ul>
+            {% for parametro in consulta.parametros.all %}
+                <li>
+                    <a href="{% url 'detalhes_parametro' parametro.id %}">{{ parametro.consulta.data }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sem Exames</p>
+    {% endif %}
+
+    <!-- Adicione outros campos conforme necessário -->
+
+    <a href="{% url 'listar_consultas' %}">Voltar para a Lista de Consultas</a>
+</body>
+</html>

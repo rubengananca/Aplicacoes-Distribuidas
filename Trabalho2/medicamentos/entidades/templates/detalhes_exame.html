@@ -1,0 +1,27 @@
+<!-- detalhes_medico.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Exame</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Detalhes do Exame</h1>
+
+    <p>Data: {{ exame.data }} </p>
+    <p>Utente: {{ exame.utente.nome }}</p>
+    <p>Tipo de exame: {{ exame.get_tipo_exames_display }}</p>
+
+    <!-- Adicione outros campos conforme necessário -->
+    <p>
+        <a href="{% url 'listar_exames' %}">Voltar para a Lista de Exames</a>
+    </p>
+    <p>
+        <a href="{% url 'listar_consultas' %}">Voltar para a Lista de Consultas</a>
+    </p>
+</body>
+</html>

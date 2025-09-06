@@ -1,0 +1,22 @@
+<!-- listar_utentes.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Médicos</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Listar Médicos</h1>
+
+    <ul>
+        {% for medico in medicos %}
+        <li> Médico: {{ medico.nome }} - <a href="{% url 'detalhes_medico' medico.id %}">Detalhes</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

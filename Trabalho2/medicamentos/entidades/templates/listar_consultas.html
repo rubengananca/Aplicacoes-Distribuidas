@@ -1,0 +1,31 @@
+<!-- listar_utentes.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Consultas</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Listar Consultas</h1>
+
+    <h2>Consultas Passadas </h2>
+    <ul>
+        {% for consulta in consultas_passadas %}
+            <li> Data: {{ consulta.data}} || Utente: {{ consulta.utente.nome}} - <a href="{% url 'detalhes_consulta' consulta.id %}">Detalhes</a></li>
+        {% endfor %}
+    </ul>
+
+    
+    <h2>Consultas Futuras </h2>
+    <ul>
+        {% for consulta in consultas_futuras %}
+            <li> Data: {{ consulta.data}} || Utente: {{ consulta.utente.nome}} - <a href="{% url 'detalhes_consulta' consulta.id %}">Detalhes</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

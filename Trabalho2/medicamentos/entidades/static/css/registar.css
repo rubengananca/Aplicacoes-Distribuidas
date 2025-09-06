@@ -1,0 +1,120 @@
+.header{
+    height: 55px;
+    background-color: #008080;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dedede; 
+
+    z-index: 100;
+
+    box-shadow:
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.012),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.018),
+    100px 100px 80px rgba(0, 0, 0, 0.03)
+  ;
+
+}
+
+.site-name{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: italic;
+
+    background-color: #008080;
+    border-width: 0;
+    cursor: pointer;
+}
+
+
+
+.right-side{
+    padding-top: 12px;
+    padding-right: 30px;
+}
+
+.headerBut{
+    font-family: 'Roboto', sans-serif;
+    background-color: #008080;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 20px;
+    font-weight: 300;
+    border-width: 0;
+    cursor: pointer;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dee8e8;
+    color: #333;
+    margin: 0;
+    padding-left: 25px;
+    padding-top: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+form {
+    max-width: 400px;
+    width: 100%;
+    background-color: #00b4b4;
+    color: white;
+
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.form-group, .caixa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #008080;
+    padding-right: 50px;
+    padding-left: 60px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    cursor: pointer; /* Cursor do mouse */
+}
+
+input[type="submit"]:hover {
+    background-color: #008080; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    transition-duration: 0.2s;
+}

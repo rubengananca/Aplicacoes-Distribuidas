@@ -1,0 +1,28 @@
+<!-- detalhes_utente.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Utente</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Detalhes do Utente</h1>
+
+    <p>Nome: {{ utente.nome }}</p>
+    <p>Idade: {{ utente.idade }}</p>
+    <p>Sexo: {{ utente.get_sexo_display }}</p>
+    <p>Número de Saúde: {{ utente.numSaude }}</p>
+    <p>Email: {{ utente.email }}</p>
+    <!-- Adicione outros campos conforme necessário -->
+
+    {% if user.tipo == 'M' %}
+        <a href="{% url 'listar_utentes' %}">Voltar para a Lista de Utentes</a>
+    {% elif user.tipo == 'U' %}
+        <a href="{% url 'home_utente' %}">Home Page</a>
+    {% endif %}
+</body>
+</html>

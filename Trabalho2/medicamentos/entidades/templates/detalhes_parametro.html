@@ -1,0 +1,31 @@
+<!-- detalhes_medico.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Parâmetro</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Detalhes do Parâmetro</h1>
+
+    <p>Data: {{ parametro.data }} </p>
+    <p>Utente: {{ parametro.utente }}</p>
+    <p>Colesterol: {{ parametro.colesterol }}</p>
+    <p>Batimentos por minuto: {{ parametro.bpm }}</p>
+    <p>Pressão sanguínea: {{ parametro.pressao }}</p>
+    <p>Altura (m): {{ parametro.altura }}</p>
+    <p>Temperatura (ºC): {{ parametro.temperatura}}</p>
+    <!-- Adicione outros campos conforme necessário -->
+
+    <p>
+        <a href="{% url 'listar_parametros' %}">Voltar para a Lista de Parâmetros</a>
+    </p>
+    <p>
+        <a href="{% url 'listar_consultas' %}">Voltar para a Lista de Consultas</a>
+    </p>
+</body>
+</html>

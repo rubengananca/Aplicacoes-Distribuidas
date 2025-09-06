@@ -1,0 +1,35 @@
+<!-- detalhes_medico.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Prescrição</title>
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+</head>
+<body>
+    <h1>Detalhes da Prescrição</h1>
+
+    <p>Utente: {{ prescricao.utente }}</p>
+    <p>Medicamento: {{ prescricao.medicamento }}</p>
+    <p>Data de início: {{ prescricao.data_prescricao }}</p>
+    <p>Data de fim: {{ prescricao.data_termino }} </p>
+    <p>Tomas: {{ prescricao.get_tomas_display }} </p>
+
+    <h2>Detalhes da Consulta associada:</h2>
+    <p>Utente: {{ prescricao.consulta.utente }}</p>
+    <p>Medico: {{ prescricao.consulta.medico }}</p>
+    <p>Data: {{ prescricao.consulta.data }}</p>
+
+    
+    <!-- Adicione outros campos conforme necessário -->
+    <p>
+    <a href="{% url 'listar_prescricoes' %}">Voltar para a Lista de Prescrições</a>
+    </p>
+    <p>
+    <a href="{% url 'listar_consultas' %}">Voltar para a Lista de Consultas</a>
+    </p>
+</body>
+</html>

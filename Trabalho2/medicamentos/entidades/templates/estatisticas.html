@@ -1,0 +1,69 @@
+<!-- templates/estatisticas.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/estatisticas.css' %}">
+</head>
+<body>
+    <div class="header">
+
+        <button class="site-name" onclick="window.location.href='{% url 'home_medico' %}'"> 
+            Home Page 
+        </button>
+
+        <div class="right-side">
+            <button class="headerBut" onclick="window.location.href='{% url 'detalhes_medico' medico_id %}'">Sobre mim</button>
+            <button class="headerBut" onclick="window.location.href='{% url 'estatisticas' %}'">Estatísticas</button>
+            <button class="headerBut" onclick="window.location.href='{% url 'home' %}'">Logout</button>
+        </div>
+    </div>
+
+    <h1>Estatísticas</h1>
+
+    <p>Total de consultas: {{ estatisticas.total_consultas }}</p>
+
+    <h2>Top 5 médicos com mais consultas:</h2>
+    <ul>
+        {% for medico in estatisticas.medico_mais_consultas %}
+            <li>{{ medico.nome }} - {{ medico.num_consultas }} consultas</li>
+        {% endfor %}
+    </ul>
+
+
+    <h2>Top 5 medicamentos mais prescritos:</h2>
+    <ul>
+        {% for medicamento in estatisticas.medicamentos_mais_prescritos %}
+            <li>{{ medicamento.nome }} - {{ medicamento.num_prescricoes }} prescrições</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Top 5 tipos de exame mais prescritos:</h2>
+    <ul>
+        {% for exame in estatisticas.exames_mais_prescritos %}
+
+            {% if exame.tipo_exames == 'E' %}
+                <li> ECG - {{ exame.num_exames }} exames</li>
+            {% elif exame.tipo_exames == 'R' %}
+                <li> RaiosX - {{ exame.num_exames }} exames</li>
+            {% elif exame.tipo_exames == 'H' %}
+                <li> Hemograma - {{ exame.num_exames }} exames</li>
+            {% elif exame.tipo_exames == 'M' %}
+                <li> Ressonância Magnética - {{ exame.num_exames }} exames</li>
+            {% elif exame.tipo_exames == 'C' %}
+                <li> Ecografia - {{ exame.num_exames }} exames</li>                
+            {% endif %}
+
+        {% endfor %} 
+    </ul>
+
+</body>
+</html>

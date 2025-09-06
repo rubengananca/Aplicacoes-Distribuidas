@@ -1,0 +1,95 @@
+<!-- templates/home.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    
+</head>
+<body>
+    
+    <div class="header">
+
+        <button class="site-name" onclick="window.location.href='{% url 'home' %}'"> 
+            Hospital CuidaUM 
+        </button>
+
+        <div class="right-side">
+            <button class="headerBut">Sobre nós</button>
+            <button class="headerBut">Corpo Docente</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Login</h1>
+
+        <form method="POST" actions="">
+
+
+            {% csrf_token %%}
+
+
+            <label for="tipo">Escolha o tipo de utilizador:</label>
+            <select name="tipo" id="tipo">
+                <option value="U" {% if tipo == 'U' %}selected{% endif %}>Utente</option>
+                <option value="M" {% if tipo == 'M' %}selected{% endif %}>Médico</option>
+                <option value="F" {% if tipo == 'F' %}selected{% endif %}>Familiar</option>
+                <!-- Adicione opções para outros tipos de utilizadores (Médico, Familiar) aqui, se necessário -->
+            </select>
+
+            {% for field in form %}
+            <div class="form-group {{ field.name }} {% if field.name != 'tipo' %} hidden {% endif %}">
+                {{ field.label_tag }} 
+            </div>
+            <div class="caixa {{ field.name }} {% if field.name != 'tipo' %} hidden {% endif %}">
+                {{ field }}
+            </div>
+            {% endfor %}
+
+            <!-- {{ form.errors }} -->
+
+            <div class="form-group">
+                <input type="submit" name="Create User">
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        // Recupera o valor do tipo do localStorage
+        var tipo = localStorage.getItem('tipo');
+
+        // Define o valor selecionado no campo tipo
+        $('#tipo').val(tipo);
+
+        // Mostra os campos do formulário correspondentes ao tipo selecionado
+        $('.' + tipo).removeClass('hidden');
+
+        // Atualiza o localStorage quando o valor do tipo muda
+        $('#tipo').change(function() {
+            var selectedType = $(this).val();
+            localStorage.setItem('tipo', selectedType);
+
+            // Oculta todos os campos do formulário
+            $('.form-group').addClass('hidden');
+            $('.caixa').addClass('hidden');
+
+            // Mostra os campos do formulário correspondentes ao tipo selecionado
+            $('.' + selectedType).removeClass('hidden');
+        });
+        });
+    </script>
+
+
+</body>
+</html>

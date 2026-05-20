@@ -67,6 +67,16 @@ The application migrated the terminal-based interactions into a web interface wi
 - CSS
 - Web Development
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/home_page.png" width="250"/>
+  <img src="screenshots/registar_medico.jpeg" width="250"/>
+  <img src="screenshots/pag_medico.jpeg" width="250"/>
+  <img src="screenshots/listar_consultas.jpeg" width="250"/>
+  <img src="screenshots/Detalhes_consulta.jpeg" width="250"/>
+</p>
+
 ---
 
 # Learning Outcomes
